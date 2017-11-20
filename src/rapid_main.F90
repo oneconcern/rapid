@@ -70,7 +70,11 @@ external rapid_phiroutine
 !*******************************************************************************
 !Initialize
 !*******************************************************************************
+! Set up namelist path from command-line arg if one is provided
 namelist_file='./rapid_namelist' 
+if(iargc() .gt. 0) then
+  call getarg(1, namelist_file)
+end if
 call rapid_init
 
 
