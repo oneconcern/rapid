@@ -151,7 +151,7 @@ call VecScale(ZV_Qlat,1/ZS_TauR,ierr)         !Qlat=Qlat/TauR
 !- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 !Read/set upstream forcing
 !- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
-print *, mod((JS_M-1)*IS_RpM+JS_RpM,IS_RpF)
+print *, IS_RpF
 if (BS_opt_for .and. IS_for_bas>0                                              &
                    .and. mod((JS_M-1)*IS_RpM+JS_RpM,IS_RpF)==1) then
 
