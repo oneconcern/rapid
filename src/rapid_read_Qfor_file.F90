@@ -67,7 +67,7 @@ end if
 !*******************************************************************************
 call VecAssemblyBegin(ZV_Qfor,ierr)
 call VecAssemblyEnd(ZV_Qfor,ierr)
-call VecView(IV_for_loc2,PETSC_VIEWER_STDOUT_WORLD,ierr)
+print *, IV_for_loc2
 call VecGetValues(ZV_Qfor,one,IV_for_loc2,out_value,ierr)
 call VecView(out_value,PETSC_VIEWER_STDOUT_WORLD,ierr)
 
