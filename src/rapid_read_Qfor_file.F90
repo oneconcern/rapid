@@ -58,7 +58,7 @@ if (rank==0) then
 call VecSetValues(ZV_Qfor,IS_for_bas,IV_for_loc2,                              &
                   ZV_read_for_tot(IV_for_index),INSERT_VALUES,ierr)
                   !here we only look at the forcing within the basin studied 
-print *, ZV_Qfor(IV_for_loc2)
+print *, ZV_Qfor
 end if
 
 !*******************************************************************************
