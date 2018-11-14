@@ -65,7 +65,7 @@ end if
 !*******************************************************************************
 call VecAssemblyBegin(ZV_Qfor,ierr)
 call VecAssemblyEnd(ZV_Qfor,ierr)
-print *, ZV_Qfor
+print *, ZV_Qfor(IV_for_loc2)
 
 
 !*******************************************************************************
