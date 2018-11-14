@@ -12,8 +12,6 @@ subroutine rapid_read_Qfor_file
 !*******************************************************************************
 !Global variables
 !*******************************************************************************
-PetscScalar :: out_value
-PetscInt :: one
 use rapid_var, only :                                                          &
                    rank,ierr,ZV_read_for_tot,                                  &
                    ZV_Qfor,IS_for_bas,IV_for_loc2,IV_for_index,ZV_read_for_tot,&
@@ -46,7 +44,8 @@ implicit none
 !*******************************************************************************
 !Intent (in/out), and local variables 
 !*******************************************************************************
-
+PetscScalar :: out_value
+PetscInt :: one
 
 !*******************************************************************************
 !Read file
