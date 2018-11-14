@@ -135,6 +135,7 @@ IV_nc_start=(/1,1/)
 IV_nc_count=(/IS_riv_tot,1/)
 IV_nc_count2=(/IS_riv_bas,1/)
 
+print * BS_opt_for
 do JS_M=1,IS_M
 
 do JS_RpM=1,IS_RpM
