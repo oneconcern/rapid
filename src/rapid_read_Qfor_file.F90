@@ -55,10 +55,10 @@ if (rank==0) read(34,*) ZV_read_for_tot
 !Set values in PETSc vector
 !*******************************************************************************
 if (rank==0) then
-print *, ZV_read_for_tot(IV_for_index)
 call VecSetValues(ZV_Qfor,IS_for_bas,IV_for_loc2,                              &
                   ZV_read_for_tot(IV_for_index),INSERT_VALUES,ierr)
                   !here we only look at the forcing within the basin studied 
+print *, ZV_Qfor(IV_for_loc2)
 end if
 
 !*******************************************************************************
