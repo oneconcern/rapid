@@ -65,7 +65,7 @@ end if
 !*******************************************************************************
 call VecAssemblyBegin(ZV_Qfor,ierr)
 call VecAssemblyEnd(ZV_Qfor,ierr)
-write(*, *) ZV_Qfor
+call VecView(ZV_Qfor,PETSC_VIEWER_STDOUT_WORLD,ierr)
 
 
 !*******************************************************************************
