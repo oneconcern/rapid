@@ -12,9 +12,12 @@ subroutine rapid_read_Qfor_file
 !*******************************************************************************
 !Global variables
 !*******************************************************************************
+PetscScalar :: out_value
+PetscInt :: one
 use rapid_var, only :                                                          &
                    rank,ierr,ZV_read_for_tot,                                  &
-                   ZV_Qfor,IS_for_bas,IV_for_loc2,IV_for_index,ZV_read_for_tot
+                   ZV_Qfor,IS_for_bas,IV_for_loc2,IV_for_index,ZV_read_for_tot,&
+                   temp_char2
 
 
 implicit none
@@ -65,8 +68,8 @@ end if
 !*******************************************************************************
 call VecAssemblyBegin(ZV_Qfor,ierr)
 call VecAssemblyEnd(ZV_Qfor,ierr)
-write(temp_char2,'(f10.2)') VecGetValues(ZV_Qfor,1,IV_for_loc2)
-print *, temp_char2
+call VecGetValues(ZV_Qfor,one,IV_for_loc2,out_value)
+call VecView(out_value,PETSC_VIEWER_STDOUT_WORLD,ierr)
 
 
 !*******************************************************************************
