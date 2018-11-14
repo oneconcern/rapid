@@ -152,7 +152,7 @@ call VecScale(ZV_Qlat,1/ZS_TauR,ierr)         !Qlat=Qlat/TauR
 !- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 if (BS_opt_for .and. IS_for_bas>0                                              &
                    .and. mod((JS_M-1)*IS_RpM+JS_RpM,IS_RpF)==1) then
-call PetscPrintf(PETSC_COMM_WORLD,'TEST' //char(10),ierr)
+
 call rapid_read_Qfor_file
 
 end if 
