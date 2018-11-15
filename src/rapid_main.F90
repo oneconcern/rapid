@@ -66,7 +66,7 @@ external rapid_phiroutine
 !*******************************************************************************
 !Intent (in/out), and local variables 
 !*******************************************************************************
-PetscScalar, allocatable, dimension(:) :: out_value
+!PetscScalar, allocatable, dimension(:) :: out_value
 
 
 !*******************************************************************************
@@ -139,7 +139,7 @@ IV_nc_start=(/1,1/)
 IV_nc_count=(/IS_riv_tot,1/)
 IV_nc_count2=(/IS_riv_bas,1/)
 
-allocate(out_value(IS_for_bas))
+!allocate(out_value(IS_for_bas))
 do JS_M=1,IS_M
 
 do JS_RpM=1,IS_RpM
@@ -197,8 +197,8 @@ call rapid_routing(ZV_C1,ZV_C2,ZV_C3,ZV_Qext,                                  &
                    ZV_QoutinitR,                                               &
                    ZV_QoutR,ZV_QoutbarR)
 
-call VecGetValues(ZV_QoutinitR,1,99730,out_value,ierr)
-print *, out_value
+!call VecGetValues(ZV_Qext,1,99730,out_value,ierr)
+!print *, out_value
 if (BS_opt_V) call rapid_QtoV(ZV_k,ZV_x,ZV_QoutbarR,ZV_Qext,ZV_VbarR)
 
 call PetscTime(ZS_time2,ierr)
