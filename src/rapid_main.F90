@@ -63,6 +63,11 @@ external rapid_phiroutine
 #include "petsc/finclude/petsctao.h" 
 !TAO solver
 
+!*******************************************************************************
+!Intent (in/out), and local variables 
+!*******************************************************************************
+PetscScalar, allocatable, dimension(:) :: out_value
+
 
 !*******************************************************************************
 !Initialize
@@ -73,11 +78,6 @@ if(iargc() .gt. 0) then
   call getarg(1, namelist_file)
 end if
 call rapid_init
-
-!*******************************************************************************
-!Intent (in/out), and local variables 
-!*******************************************************************************
-PetscScalar, allocatable, dimension(:) :: out_value
 
 !*******************************************************************************
 !OPTION 1 - use to calculate flows and volumes and generate output data 
