@@ -189,7 +189,8 @@ if (BS_opt_dam) call VecAXPY(ZV_Qext,ZS_one,ZV_Qdam,ierr)     !Qext=Qext+1*Qdam
 if (BS_opt_hum) call VecAXPY(ZV_Qext,ZS_one,ZV_Qhum,ierr)     !Qext=Qext+1*Qhum
 
 allocate(out_value(IS_for_bas))
-call VecGetValues(ZV_Qfor,1,99730,out_value,ierr)
+call VecGetValues(ZV_Qext,1,99730,out_value,ierr)
+print *, out_value
 !- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 !Routing procedure
 !- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
