@@ -197,7 +197,7 @@ call rapid_routing(ZV_C1,ZV_C2,ZV_C3,ZV_Qext,                                  &
                    ZV_QoutinitR,                                               &
                    ZV_QoutR,ZV_QoutbarR)
 
-call VecGetValues(ZV_QoutR,1,99730,out_value,ierr)
+call VecGetValues(ZV_QoutinitR,1,99730,out_value,ierr)
 print *, out_value
 if (BS_opt_V) call rapid_QtoV(ZV_k,ZV_x,ZV_QoutbarR,ZV_Qext,ZV_VbarR)
 
