@@ -67,7 +67,6 @@ end if
 call VecAssemblyBegin(ZV_Qfor,ierr)
 call VecAssemblyEnd(ZV_Qfor,ierr)
 allocate(out_value(IS_for_bas))
-print *, out_value
 call VecGetValues(ZV_Qfor,1,99730,out_value,ierr)
 !call VecView(out_value,PETSC_VIEWER_STDOUT_WORLD,ierr)
 print *, out_value
