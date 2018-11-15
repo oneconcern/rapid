@@ -70,7 +70,7 @@ call VecAssemblyEnd(ZV_Qfor,ierr)
 allocate(out_value(IS_for_bas))
 print *, one
 print *, out_value
-call VecGetValues(ZV_Qfor,one,IV_for_loc2,out_value,ierr)
+call VecGetValues(ZV_Qfor,1,IV_for_loc2,out_value,ierr)
 call VecView(out_value,PETSC_VIEWER_STDOUT_WORLD,ierr)
 
 
