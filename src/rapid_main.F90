@@ -139,7 +139,7 @@ IV_nc_start=(/1,1/)
 IV_nc_count=(/IS_riv_tot,1/)
 IV_nc_count2=(/IS_riv_bas,1/)
 
-
+allocate(out_value(IS_for_bas))
 do JS_M=1,IS_M
 
 do JS_RpM=1,IS_RpM
@@ -188,7 +188,6 @@ if (BS_opt_for) call VecAXPY(ZV_Qext,ZS_one,ZV_Qfor,ierr)     !Qext=Qext+1*Qfor
 if (BS_opt_dam) call VecAXPY(ZV_Qext,ZS_one,ZV_Qdam,ierr)     !Qext=Qext+1*Qdam
 if (BS_opt_hum) call VecAXPY(ZV_Qext,ZS_one,ZV_Qhum,ierr)     !Qext=Qext+1*Qhum
 
-allocate(out_value(IS_for_bas))
 call VecGetValues(ZV_Qext,1,99730,out_value,ierr)
 print *, out_value
 !- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
