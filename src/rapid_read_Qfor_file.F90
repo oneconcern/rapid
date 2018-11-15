@@ -46,7 +46,7 @@ implicit none
 !*******************************************************************************
 PetscScalar :: out_value
 PetscInt :: one
-
+one=int(1)
 !*******************************************************************************
 !Read file
 !*******************************************************************************
@@ -68,7 +68,7 @@ end if
 call VecAssemblyBegin(ZV_Qfor,ierr)
 call VecAssemblyEnd(ZV_Qfor,ierr)
 print *, IV_for_loc2
-call VecGetValues(ZV_Qfor,one,one,out_value,ierr)
+call VecGetValues(ZV_Qfor,one,IV_for_loc2,out_value,ierr)
 call VecView(out_value,PETSC_VIEWER_STDOUT_WORLD,ierr)
 
 
