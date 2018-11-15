@@ -44,7 +44,7 @@ implicit none
 !*******************************************************************************
 !Intent (in/out), and local variables 
 !*******************************************************************************
-PetscScalar, allocatable, dimension(:) :: out_value
+!PetscScalar, allocatable, dimension(:) :: out_value
 
 !*******************************************************************************
 !Read file
@@ -66,10 +66,10 @@ end if
 !*******************************************************************************
 call VecAssemblyBegin(ZV_Qfor,ierr)
 call VecAssemblyEnd(ZV_Qfor,ierr)
-allocate(out_value(IS_for_bas))
-call VecGetValues(ZV_Qfor,1,99730,out_value,ierr)
+!allocate(out_value(IS_for_bas))
+!call VecGetValues(ZV_Qfor,1,99730,out_value,ierr)
 !call VecView(out_value,PETSC_VIEWER_STDOUT_WORLD,ierr)
-print *, out_value
+!print *, out_value
 
 
 !*******************************************************************************

@@ -74,6 +74,10 @@ if(iargc() .gt. 0) then
 end if
 call rapid_init
 
+!*******************************************************************************
+!Intent (in/out), and local variables 
+!*******************************************************************************
+PetscScalar, allocatable, dimension(:) :: out_value
 
 !*******************************************************************************
 !OPTION 1 - use to calculate flows and volumes and generate output data 
@@ -184,6 +188,8 @@ if (BS_opt_for) call VecAXPY(ZV_Qext,ZS_one,ZV_Qfor,ierr)     !Qext=Qext+1*Qfor
 if (BS_opt_dam) call VecAXPY(ZV_Qext,ZS_one,ZV_Qdam,ierr)     !Qext=Qext+1*Qdam
 if (BS_opt_hum) call VecAXPY(ZV_Qext,ZS_one,ZV_Qhum,ierr)     !Qext=Qext+1*Qhum
 
+allocate(out_value(IS_for_bas))
+call VecGetValues(ZV_Qfor,1,99730,out_value,ierr)
 !- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 !Routing procedure
 !- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
