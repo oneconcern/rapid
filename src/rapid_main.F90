@@ -174,7 +174,7 @@ end if
 !Read/set human induced flows 
 !- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 if (BS_opt_hum .and. IS_hum_bas>0                                              &
-                   .and. mod((JS_M-1)*IS_RpM+JS_RpM,IS_RpH)==1) then
+                   .and. mod((JS_M-1)*IS_RpM+JS_RpM,IS_RpH)==0) then
 
 call rapid_read_Qhum_file
 
