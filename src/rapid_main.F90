@@ -66,6 +66,11 @@ external rapid_phiroutine
 #include "petsc/finclude/petsctao.h" 
 !TAO solver
 
+!*******************************************************************************
+!Intent (in/out), and local variables 
+!*******************************************************************************
+!PetscScalar, allocatable, dimension(:) :: out_value
+
 
 !*******************************************************************************
 !Initialize
@@ -76,7 +81,6 @@ if(iargc() .gt. 0) then
   call getarg(1, namelist_file)
 end if
 call rapid_init
-
 
 !*******************************************************************************
 !OPTION 1 - use to calculate flows and volumes and generate output data 
@@ -138,6 +142,7 @@ IV_nc_start=(/1,1/)
 IV_nc_count=(/IS_riv_tot,1/)
 IV_nc_count2=(/IS_riv_bas,1/)
 
+!allocate(out_value(IS_for_bas))
 do JS_M=1,IS_M
 
 do JS_RpM=1,IS_RpM
@@ -154,8 +159,7 @@ call VecScale(ZV_Qlat,1/ZS_TauR,ierr)         !Qlat=Qlat/TauR
 !Read/set upstream forcing
 !- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 if (BS_opt_for .and. IS_for_bas>0                                              &
-                   .and. mod((JS_M-1)*IS_RpM+JS_RpM,IS_RpF)==1) then
-
+                   .and. mod((JS_M-1)*IS_RpM+JS_RpM,IS_RpF)==0) then
 call rapid_read_Qfor_file
 
 end if 
@@ -173,7 +177,7 @@ end if
 !Read/set human induced flows 
 !- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 if (BS_opt_hum .and. IS_hum_bas>0                                              &
-                   .and. mod((JS_M-1)*IS_RpM+JS_RpM,IS_RpH)==1) then
+                   .and. mod((JS_M-1)*IS_RpM+JS_RpM,IS_RpH)==0) then
 
 call rapid_read_Qhum_file
 
@@ -196,6 +200,8 @@ call rapid_routing(ZV_C1,ZV_C2,ZV_C3,ZV_Qext,                                  &
                    ZV_QoutinitR,                                               &
                    ZV_QoutR,ZV_QoutbarR)
 
+!call VecGetValues(ZV_Qext,1,99730,out_value,ierr)
+!print *, out_value
 if (BS_opt_V) call rapid_QtoV(ZV_k,ZV_x,ZV_QoutbarR,ZV_Qext,ZV_VbarR)
 
 call PetscTime(ZS_time2,ierr)
