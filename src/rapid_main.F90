@@ -141,6 +141,7 @@ IV_nc_count2=(/IS_riv_bas,1/)
 
 !allocate(out_value(IS_for_bas))
 do JS_M=1,IS_M
+print *, JS_M
 
 do JS_RpM=1,IS_RpM
 
